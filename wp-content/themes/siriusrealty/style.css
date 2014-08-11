@@ -415,10 +415,6 @@ html, body, #page {
 	width: 100%;
 }
 
-#masthead {
-	background: #222;
-	width: 100%;	
-}
 /*--------------------------------------------------------------
 5.1 Links
 --------------------------------------------------------------*/
@@ -439,71 +435,54 @@ a:active {
 /*--------------------------------------------------------------
 5.2 Menus
 --------------------------------------------------------------*/
-.main-navigation {
-	clear: both;
+#masthead {
+	background: #222;
+	width: 100%;	
+}
+
+#masthead .site-branding {
+	margin: 0 auto;
+	width: 980px;
+}
+
+.site-branding .logo img {
 	display: block;
-	float: left;
+	margin: 0 auto;
+}
+
+.main-navigation {
+	display: block;
+	float: none;
+	text-align: center;
 	width: 100%;
 }
 
+.main-navigation button { display: none; }
+
 .main-navigation ul {
 	list-style: none;
-	margin: 0;
-	padding-left: 0;
+	display: inline-block;
+	margin: 30px 0 0 0;
+	padding: 0 0 10px;
 }
 
 .main-navigation li {
 	float: left;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	padding: 0 10px;
 	position: relative;
+	text-transform: uppercase;
 }
 
 .main-navigation a {
+	color: #fff;
 	display: block;
 	text-decoration: none;
 }
 
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 1.5em;
-	left: -999em;
-	z-index: 99999;
-}
-
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
-}
-
-.main-navigation ul ul a {
-	width: 200px;
-}
-
-.main-navigation ul ul li {
-
-}
-
-.main-navigation li:hover > a {
-}
-
-.main-navigation ul ul :hover > a {
-}
-
-.main-navigation ul ul a:hover {
-}
-
-.main-navigation ul li:hover > ul {
-	left: auto;
-}
-
-.main-navigation ul ul li:hover > ul {
-	left: 100%;
-}
-
-.main-navigation .current_page_item a,
-.main-navigation .current-menu-item a {
-}
+.main-navigation a:hover { text-decoration: underline; }
 
 /* Small menu */
 .menu-toggle {
@@ -521,30 +500,16 @@ a:active {
 	}
 }
 
-.site-main .comment-navigation,
-.site-main .paging-navigation,
-.site-main .post-navigation {
-	margin: 0 0 1.5em;
-	overflow: hidden;
-}
-
-.comment-navigation .nav-previous,
-.paging-navigation .nav-previous,
-.post-navigation .nav-previous {
-	float: left;
-	width: 50%;
-}
-
-.comment-navigation .nav-next,
-.paging-navigation .nav-next,
-.post-navigation .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
+/*--------------------------------------------------------------
+6.0 Content
+--------------------------------------------------------------*/
+#content {
+	margin: 0 auto;
+	width: 980px;
 }
 
 /*--------------------------------------------------------------
-6.0 Accessibility
+7.0 Accessibility
 --------------------------------------------------------------*/
 /* Text meant only for screen readers */
 .screen-reader-text {
@@ -799,3 +764,18 @@ object {
 .gallery-caption {
 	display: block;
 }
+/*--------------------------------------------------------------
+Clearfix
+--------------------------------------------------------------*/
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+ }
+ 
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
