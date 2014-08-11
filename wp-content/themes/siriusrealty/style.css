@@ -422,7 +422,7 @@ html, body, #page {
 	display: block;
 }
 
-@media screen and (max-width: 600px) {	
+@media screen and (max-width: 700px) {	
     .img-wrap img {
         width: calc(100% + 0.2px);
         min-width: 500px;
@@ -451,25 +451,31 @@ a:active {
 /*--------------------------------------------------------------
 5.2 Menus
 --------------------------------------------------------------*/
-#masthead {
-	background: #222;
-	width: 100%;	
-}
-
+#masthead { width: 100%; }
 #masthead .site-branding { margin: 0 auto; }
 
-.site-branding .logo img {
+.site-branding {
+	background: #222;
+	height: 100%;
+	width: 100%;
+}
+
+.site-branding .logo img.logo-nav {
 	display: block;
 	margin: 0 auto;
 	padding-top: 25px;
-	width: 250px;
+	width: 190px;
 }
 
+.site-branding .logo img.logo-home-mobile { display: none; }
+
+/*--------------------------------------------------------------
+5.3 Navigation
+--------------------------------------------------------------*/
 .main-navigation {
 	display: block;
 	float: none;
 	text-align: center;
-	width: 100%;
 }
 
 .main-navigation button { display: none; }
@@ -477,7 +483,7 @@ a:active {
 .main-navigation ul {
 	list-style: none;
 	display: inline-block;
-	margin: 30px 0 0 0;
+	margin: 25px 0 0 0;
 	padding: 0 0 10px;
 }
 
@@ -499,19 +505,27 @@ a:active {
 
 .main-navigation a:hover { text-decoration: underline; }
 
-@media screen and (max-width: 600px) {	
-	.site-branding .logo img { padding: 25px 0; }
+@media screen and (max-width: 700px) {	
+	#site-navigation {
+		background: #222;
+		opacity: .92;
+		position: absolute;
+		top: 79px;
+		width: 100%;
+	}	
 	
 	.main-navigation button {
 		background: none;
 		border: 0;
 		color: #fff;
+		cursor: pointer;
 		display: block;
 		font-size: 18px;
 		position: absolute;
 		outline: none;
-		right: 0;
-		top: 2px;
+		right: 5px;
+		text-decoration: none;
+		top: -58px;
 		z-index: 999;
 	}
 	
@@ -531,14 +545,140 @@ a:active {
 		float: none;
 		padding: 5px 0;
 	}
+	
+	.ha-header-small #site-navigation { top: 39px; }
+	.ha-header-small .main-navigation button { top: -36px; }
 } 
+
+/*--------------------------------------------------------------
+5.4 Footer
+--------------------------------------------------------------*/
+#site-footer {
+	background: #ddd;
+	padding-top: 25px;
+}
+
+#site-footer ul {
+	float: left;
+	list-style: none;
+}
+
+#site-footer li {
+	float: left;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	font-weight: 400;
+	padding: 0 10px;
+	position: relative;
+}
+
+#site-footer a {
+	color: #222;
+	display: block;
+	text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+5.5 Fixed Scrolling
+--------------------------------------------------------------*/
+.ha-header {
+	height: 100%;
+	padding: 0;
+	z-index: 50;
+	font-family: 'Lato', Arial, sans-serif;
+	-webkit-transform: translateY(0%);
+	-moz-transform: translateY(0%);
+	transform: translateY(0%);
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.ha-header-perspective > div {
+	position: relative;
+	text-align: justify;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.ha-header-front {
+	z-index: 2;
+	-webkit-transform-origin: 50% 100%;
+	-moz-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+}
+
+.ha-header-large .site-branding { height: 120px; }
+
+.ha-header-small .site-branding { height: 75px; }
+
+.ha-header-small .site-branding .logo img {
+	float: left;
+	padding-left: 25px;
+	width: 160px;
+}
+
+.ha-header-small .main-navigation { 
+	float: right;
+	padding-left: 15px; 
+	padding-top: 3px;
+}
+
+.ha-header-perspective .ha-header-bottom {
+	bottom: 0;
+	height: 70px;
+	position: absolute;
+	opacity: 0;
+	width: 100%;
+}
+.ha-header-small .ha-header-bottom { opacity: 0.9; }
+
+@media screen and (max-width: 700px) {	
+	.ha-header-large .site-branding .logo img.logo-nav { 
+		padding: 28px 0 28px 10px; 
+		margin: 0;
+		width: 140px;
+	}
+	.ha-header-small .site-branding .logo img.logo-nav { 
+		display: block;	
+		padding: 14px 0 5px 15px;
+		width: 100px;   
+	}
+	
+	.ha-header-large .site-branding .logo img.logo-home-mobile {
+		display: block;
+		float: left;
+		margin-left: 15px;
+		padding-top: 15px;
+		width: 35px;
+	}
+	
+	.ha-header-small .site-branding .logo img.logo-home-mobile { display: none; }
+	
+	.ha-header-small .site-branding { height: 40px; }
+	.ha-header-large .site-branding { height: 80px; }
+	.ha-header .ha-header-bottom nav { padding: 40px 0px; }
+
+	.ha-header nav {
+		display: block;
+		height: auto;
+	}
+}
 
 /*--------------------------------------------------------------
 6.0 Content
 --------------------------------------------------------------*/
 #content {
 	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-	margin: 0 auto;
+	margin: 50px auto 0;
+	padding-top: 25px;
 	width: 980px;
 }
 
@@ -555,21 +695,55 @@ a:active {
 	color: #fff;
 	font-size: 20px;
 	text-align: center;
+	height: 600px;
+}
+
+.home #content h1 {
+	font-family: "freight-big-pro", sans-serif;
+	font-size: 70px;
+	font-weight: 300;
+	line-height: 60px;
+	margin: 0 auto 50px;
+	text-transform: uppercase;
+	width: 615px;
 }
 
 .home #content p {
 	font-size: 18px;
+	line-height: 24px;
 	margin: 0 auto;
 	width: 500px;
 }
 
-@media screen and (max-width: 600px) {	
-	#content {
+@media screen and (max-width: 700px) {	
+	#content { width: 100%; }
+	
+	.home #content img {
+		margin-bottom: 25px;
+	}
+	
+	.home #content h1 {
+		font-size: 38px;
+		line-height: 30px;
+		margin-bottom: 25px;
+		padding: 0 10px;
+		width: 100%;
+	}
+	
+	.home #content p {
+		font-size: 12px;
+		line-height: 18px;
+		padding: 0 25px;
 		width: 100%;
 	}
 }
+
 /*--------------------------------------------------------------
-7.0 Accessibility
+7.0 Footer
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+8.0 Accessibility
 --------------------------------------------------------------*/
 /* Text meant only for screen readers */
 .screen-reader-text {
@@ -824,23 +998,5 @@ object {
 .gallery-caption {
 	display: block;
 }
-/*--------------------------------------------------------------
-Clearfix
---------------------------------------------------------------*/
-.clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
- }
- 
-.clearfix { display: inline-block; }
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
 
-/*REMOVE WHEN LIVE */
-@media screen and (max-width: 600px) {
-	#wpadminbar { display: none; }
-}
+html #wpadminbar { display: none; }
