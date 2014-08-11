@@ -9,27 +9,23 @@
  *
  * @package siriusrealty
  */
-
+$url = get_template_directory_uri();
 get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
+			<?php if( is_home() || is_front_page() ) { ?>
+				<img src="<?php echo $url; ?>/images/logo-home.png" class="logo-home" />
+			<?php } ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-
-				<?php get_template_part( 'content', 'page' ); ?>
-
-				<?php
-					// If comments are open or we have at least one comment, load up the comment template
-					if ( comments_open() || '0' != get_comments_number() ) :
-						comments_template();
-					endif;
-				?>
-
+				<?php if( is_home() || is_front_page() ) { ?>
+					<?php the_content(); ?>
+				<?php } else { ?>
+					<?php get_template_part( 'content', 'page' ); ?>
+				<?php } ?>
 			<?php endwhile; // end of the loop. ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
