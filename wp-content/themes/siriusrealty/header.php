@@ -17,9 +17,21 @@
 		<?php $url = get_template_directory_uri(); ?>
 		<link rel="icon" type="image/x-icon" href="<?php echo $url; ?>/images/sirius.ico" />
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" id="font_awesome-css" href="<?php echo $url; ?>/inc/font-awesome/css/font-awesome.min.css" type="text/css" media="all">
+		<link rel="stylesheet" id="font_awesome-css" href="<?php echo $url; ?>/layouts/hover-effect.css" type="text/css" media="all">
 		<?php wp_head(); ?>
+		<!-- REMOVE STYLING -->
+		<style type="text/css" media="screen">
+			html { margin-top: 32px !important; }
+			* html body { margin-top: 0 !important; }
+			@media screen and ( max-width: 782px ) {
+				html { margin-top: 0 !important; }
+				* html body { margin-top: 0 !important; }
+			}
+		</style>
 	</head>
 	<body <?php body_class(); ?>>
+		<div class="img-wrap"><img src="<?php echo $url; ?>/images/nyc.png" /></div>
 		<div id="page" class="hfeed site">
 			<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'siriusrealty' ); ?></a>
 			
@@ -29,7 +41,9 @@
 						<img src="<?php echo $url; ?>/images/logo-nav.png" alt="<?php bloginfo( 'name' ); ?>"/>
 					</a>
 					<nav id="site-navigation" class="main-navigation" role="navigation">
-						<button class="menu-toggle"><?php _e( 'Primary Menu', 'siriusrealty' ); ?></button>
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+				          <i class="fa fa-bars"></i>
+				        </button>
 						<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 					</nav><!-- #site-navigation -->
 				</div>

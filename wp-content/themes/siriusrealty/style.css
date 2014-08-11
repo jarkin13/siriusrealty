@@ -302,7 +302,6 @@ th {
 /*--------------------------------------------------------------
 4.0 Forms
 --------------------------------------------------------------*/
-button,
 input,
 select,
 textarea {
@@ -311,8 +310,7 @@ textarea {
 	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
 }
 
-button,
-input[type="button"],
+
 input[type="reset"],
 input[type="submit"] {
 	border: 1px solid;
@@ -330,8 +328,6 @@ input[type="submit"] {
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
-button:hover,
-input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
 	border-color: #ccc #bbb #aaa;
@@ -339,7 +335,6 @@ input[type="submit"]:hover {
 }
 
 button:focus,
-input[type="button"]:focus,
 input[type="reset"]:focus,
 input[type="submit"]:focus,
 button:active,
@@ -415,6 +410,26 @@ html, body, #page {
 	width: 100%;
 }
 
+.img-wrap {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.img-wrap img {
+	position: absolute;
+	display: block;
+}
+
+@media screen and (min-aspect-ratio: 1280/850) {
+    .img-wrap  img {
+        width: calc(100% + 0.2px);
+        height: auto;
+    }
+}
+
+
 /*--------------------------------------------------------------
 5.1 Links
 --------------------------------------------------------------*/
@@ -440,14 +455,13 @@ a:active {
 	width: 100%;	
 }
 
-#masthead .site-branding {
-	margin: 0 auto;
-	width: 980px;
-}
+#masthead .site-branding { margin: 0 auto; }
 
 .site-branding .logo img {
 	display: block;
 	margin: 0 auto;
+	padding-top: 25px;
+	width: 250px;
 }
 
 .main-navigation {
@@ -469,7 +483,7 @@ a:active {
 .main-navigation li {
 	float: left;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 14px;
+	font-size: 13px;
 	font-weight: 400;
 	padding: 0 10px;
 	position: relative;
@@ -484,21 +498,39 @@ a:active {
 
 .main-navigation a:hover { text-decoration: underline; }
 
-/* Small menu */
-.menu-toggle {
-	display: none;
-}
-
-@media screen and (max-width: 600px) {
-	.menu-toggle,
-	.main-navigation.toggled .nav-menu {
+@media screen and (max-width: 600px) {	
+	.site-branding .logo img { padding: 25px 0; }
+	
+	.main-navigation button {
+		background: none;
+		border: 0;
+		color: #fff;
 		display: block;
+		font-size: 18px;
+		position: absolute;
+		outline: none;
+		right: 0;
+		top: 2px;
+		z-index: 999;
 	}
-
+	
 	.main-navigation ul {
+		border-bottom: 1px solid #eee;
+		border-top: 1px solid #eee;
 		display: none;
 	}
-}
+	
+	.main-navigation.toggled ul {
+		display: block;
+		margin-top: 2px;
+	}
+	
+	.main-navigation li {
+		font-size: 12px;
+		float: none;
+		padding: 5px 0;
+	}
+} 
 
 /*--------------------------------------------------------------
 6.0 Content
@@ -507,7 +539,6 @@ a:active {
 	margin: 0 auto;
 	width: 980px;
 }
-
 /*--------------------------------------------------------------
 7.0 Accessibility
 --------------------------------------------------------------*/
@@ -779,3 +810,8 @@ Clearfix
 .clearfix { display: inline-block; }
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
+
+/*REMOVE WHEN LIVE */
+@media screen and (max-width: 600px) {
+	#wpadminbar { display: none; }
+}
